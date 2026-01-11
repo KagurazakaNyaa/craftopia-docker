@@ -1,5 +1,6 @@
 FROM alpine:3 AS downloader
 ARG BEPINEX_VERSION=5.4.23.4
+RUN apk add --no-cache wget
 
 WORKDIR /workspace
 RUN wget https://github.com/BepInEx/BepInEx/releases/download/v${BEPINEX_VERSION}/BepInEx_linux_x64_${BEPINEX_VERSION}.zip &&\
@@ -17,6 +18,7 @@ USER steam
 WORKDIR /opt/craftopia
 
 # install game
+RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +quit
 RUN /home/steam/steamcmd/steamcmd.sh \
     +force_install_dir "/opt/craftopia" \
     +login anonymous \
