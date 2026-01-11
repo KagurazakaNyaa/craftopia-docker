@@ -1,5 +1,5 @@
 FROM alpine:3 AS downloader
-ARG BEPINEX_VERSION=5.4.23.2
+ARG BEPINEX_VERSION=5.4.23.4
 
 WORKDIR /workspace
 RUN wget https://github.com/BepInEx/BepInEx/releases/download/v${BEPINEX_VERSION}/BepInEx_linux_x64_${BEPINEX_VERSION}.zip &&\
